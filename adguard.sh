@@ -12,7 +12,9 @@ sudo apt upgrade -y
 # Ubuntu preparation
 sudo mkdir -p /etc/systemd/resolved.conf.d
 
-sudo printf "[Resolve]\nDNS=127.0.0.1\nDNSStubListener=no" >> /etc/systemd/resolved.conf.d/adguardhome.conf
+sudo su
+printf "[Resolve]\nDNS=127.0.0.1\nDNSStubListener=no" >> /etc/systemd/resolved.conf.d/adguardhome.conf
+exit
 
 sudo mv /etc/resolv.conf /etc/resolv.conf.backup
 sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
